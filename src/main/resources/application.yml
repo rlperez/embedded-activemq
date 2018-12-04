@@ -1,7 +1,5 @@
-
 spring:
   activemq:
-      broker-url: vm://embedded?broker.persistent=false,useShutdownHook=false
       in-memory: true
       non-blocking-redelivery: true
       packages:
@@ -29,8 +27,7 @@ spring:
       max-concurrency: 10
     pub-sub-domain: false
     template:
-      default-destination:
-      delivery-mode: non_persistent
+      delivery-mode: persistent
       priority: 100
       qos-enabled: true
       receive-timeout: 1000
@@ -41,6 +38,6 @@ logging:
   pattern:
     console: "%msg%n"
   level:
-      - ".=info"
+      - ".=debug"
       - "com.demo=debug"
       - "org.springframework=info"
